@@ -14,12 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(result => {
                 const numeroPersonas = result;
                 console.log("Respuesta: ", result);
+                numeroPersonasElement.textContent = numeroPersonas; // Establece el contenido dentro del .then
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-        
-        numeroPersonasElement.textContent = numeroPersonas;
     }
 
     var callAPI = () => {
