@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var cPersonas = 12;
 
-    //button.addEventListener("Actualizar", function () {
-    //    message.textContent = cPersonas
-    //});
+    
     
     function updateNumeroPersonas() {
         callAPI()
@@ -26,20 +24,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var callAPI = () => {
         return new Promise((resolve, reject) => {
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-    
             var requestOptions = {
-                method: 'GET', // Cambiamos el método a GET si solo esperamos una respuesta
-                headers: myHeaders,
+                method: 'GET', // Cambiamos el método a GET si solo necesitas el valor
                 redirect: 'follow'
             };
     
-            fetch("YOUR API GATEWAY ENDPOINT", requestOptions)
-            .then(response => response.text())
+            fetch("https://dqrqv2q9jg.execute-api.sa-east-1.amazonaws.com/deploy", requestOptions)
+            .then(response => response.json())
             .then(result => {
-                var resultObject = JSON.parse(result);
-                var resultValue = resultObject.body;
+                var resultValue = result.body; // Suponiendo que el valor que necesitas se encuentra en una propiedad llamada 'body'
     
                 // Resuelve la promesa con el valor resultante
                 resolve(parseFloat(resultValue));
