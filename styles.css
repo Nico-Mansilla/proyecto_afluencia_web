@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #eeeeee; /* Agregamos el fondo gris claro */
 }
 
 h1 {
@@ -17,4 +18,11 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 20%; 
 }

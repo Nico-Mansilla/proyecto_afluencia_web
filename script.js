@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //});
     
     function updateNumeroPersonas() {
+        fetch(" https://dqrqv2q9jg.execute-api.sa-east-1.amazonaws.com/deploy", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        callAPI(document.getElementById('base').value,document.getElementById('exponent').value)
         const numeroPersonas = "1";
         numeroPersonasElement.textContent = numeroPersonas;
     }
