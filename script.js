@@ -12,14 +12,44 @@ document.addEventListener("DOMContentLoaded", function () {
     //});
     
     function updateNumeroPersonas() {
-        fetch(" https://dqrqv2q9jg.execute-api.sa-east-1.amazonaws.com/deploy", requestOptions)
-            .then(response => response.text())
-            .then(result => alert(JSON.parse(result).body))
-            .catch(error => console.log('error', error));
-        callAPI(document.getElementById('base').value,document.getElementById('exponent').value)
-        const numeroPersonas = "1";
+        callAPI()
+            .then(result => {
+                const numeroPersonas = result;
+                console.log("Respuesta: ", result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        
         numeroPersonasElement.textContent = numeroPersonas;
     }
+
+    var callAPI = () => {
+        return new Promise((resolve, reject) => {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+    
+            var requestOptions = {
+                method: 'GET', // Cambiamos el método a GET si solo esperamos una respuesta
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+    
+            fetch("YOUR API GATEWAY ENDPOINT", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                var resultObject = JSON.parse(result);
+                var resultValue = resultObject.body;
+    
+                // Resuelve la promesa con el valor resultante
+                resolve(parseFloat(resultValue));
+            })
+            .catch(error => {
+                reject(error);
+            });
+        });
+    }
+    
 
     function updateChileTime() {
         const chileTime = new Date().toLocaleString("en-US", { timeZone: "America/Santiago" });
