@@ -2,24 +2,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const button = document.getElementById("myButton");
     const message = document.getElementById("message");
     const chileTimeElement = document.getElementById("chileTime");
+    const numeroPersonasElement = document.getElementById("numeroPersonas");
     var n = 0;
 
-    button.addEventListener("click", function () {
-        if (n==0) {
-            message.textContent = "¡Hola desde AWS Amplify!";
-            n=1
-        } else {
-            message.textContent = "Gracias ChatGPT";
-            n=0;
-        }
-    });
+    var cPersonas = 12;
+
+    //button.addEventListener("Actualizar", function () {
+    //    message.textContent = cPersonas
+    //});
     
+    function updateNumeroPersonas() {
+        const numeroPersonas = "1";
+        numeroPersonasElement.textContent = numeroPersonas;
+    }
+
     function updateChileTime() {
         const chileTime = new Date().toLocaleString("en-US", { timeZone: "America/Santiago" });
         chileTimeElement.textContent = chileTime;
     }
-    updateChileTime();
+    
 
-    // Actualizar la hora cada segundo
-    setInterval(updateChileTime, 1000);
+    function update() {
+        updateChileTime();
+        updateNumeroPersonas();
+    }
+    // Actualizar cada segundo
+    setInterval(update, 1000);
 });
