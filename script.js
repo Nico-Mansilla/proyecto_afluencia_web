@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const message = document.getElementById("message");
     const chileTimeElement = document.getElementById("chileTime");
     const numeroPersonasElement = document.getElementById("numeroPersonas");
+    const porcentajePersonasElement = document.getElementById("porcentajePersonas");
     var n = 0;
+    const capacidadC = 300;
 
     var cPersonas = 12;
 
@@ -13,8 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
         callAPI()
             .then(result => {
                 const numeroPersonas = result;
+                const porcentajePersonas = parseFloat(result);
+
                 console.log("Respuesta: ", result);
                 numeroPersonasElement.textContent = numeroPersonas; // Establece el contenido dentro del .then
+                porcentajePersonasElement.textContent = Math.round(numeroPersonas/capacidadC);
             })
             .catch(error => {
                 console.error('Error:', error);
