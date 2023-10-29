@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     function updateChileTime() {
-        const chileTime = new Date().toLocaleString("en-US", { timeZone: "America/Santiago" });
+        const chileTime = new Date().toLocaleString("es-CL", { timeZone: "America/Santiago" });
         chileTimeElement.textContent = chileTime;
     }
     

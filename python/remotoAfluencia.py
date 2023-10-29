@@ -1,23 +1,27 @@
 import requests
 import json
 import pytz
+import locale
 from datetime import datetime
 
 # Define la URL de la API Gateway
 api_url = "https://dqrqv2q9jg.execute-api.sa-east-1.amazonaws.com/deploy"  # Reemplaza con la URL de tu API Gateway
 
 # Obtén la hora actual en Santiago de Chile automáticamente
+
 santiago_timezone = pytz.timezone('Chile/Continental')
 now = datetime.now(santiago_timezone).strftime("%Y-%m-%d %H:%M:%S")
+dia = datetime.now(santiago_timezone).strftime("%A")
 
 zona = 0
-cantidad = 5
+cantidad = 7
 
 # Datos a enviar en la solicitud POST
 data = {
     "zona": str(zona),
     "cantidad": cantidad,
-    "tiempo": now
+    "tiempo": now,
+    "dia": dia
 }
 
 # Convierte los datos a JSON
