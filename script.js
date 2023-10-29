@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log("Respuesta: ", result);
                 numeroPersonasElement.textContent = numeroPersonas; // Establece el contenido dentro del .then
-                porcentajePersonasElement.textContent = Math.round(numeroPersonas/capacidadC);
+                porcentajePersonasElement.textContent = Math.round((numeroPersonas/capacidadC)*100);
             })
             .catch(error => {
                 console.error('Error:', error);
