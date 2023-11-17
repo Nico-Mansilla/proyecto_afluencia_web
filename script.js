@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function update() {
         updateChileTime();
-        updateNumeroPersonas();
+        //updateNumeroPersonas();
     }
     // Actualizar cada segundo
     setInterval(update, 1000);
