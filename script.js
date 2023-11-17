@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const numeroPersonasElement = document.getElementById("numeroPersonas");
     const porcentajePersonasElement = document.getElementById("porcentajePersonas");
     var n = 0;
-    const capacidadC = 300.00;
+    const capacidadC = 200.00;
 
     var cPersonas = 12;
 
