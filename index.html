@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="styles.css">
     <title>afluencia inteligente</title>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="script.js"></script>
 <body>
     <h1>Bienvenido a Afluencia inteligente</h1>
     <p>La fecha y hora en Chile es: <span id="chileTime"></span></p>
@@ -14,10 +16,13 @@
 
     <p>Correspondiente a una ocuapcion del:</p>
     <p><span id="porcentajePersonas"></span> % </p>
-
-    <canvas id="myChart" width="400" height="200"></canvas>
-    <script src="grafico.js"></script>
-
-    <script src="script.js"></script>
+    <p>Historial de hoy <span id="nombreDia"></span>:</p>
+    <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+        <canvas id="myChart" style="max-width: 600px;"></canvas>
+    </div>
+    
+    <script src="grafico.js"></script>    
+    
+    
 </body>
 </html>
