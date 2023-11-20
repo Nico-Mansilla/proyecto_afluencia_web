@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>afluencia inteligente</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Afluencia Inteligente</title>
+    </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="script.js"></script>
 <body>
-    <h1>Bienvenido a Afluencia inteligente</h1>
+    <header>
+        <img id="logo" src="images/afluencia2.png" alt="Afluencia Inteligente Logo">
+        <div id="header-text">
+            <h1>Bienvenido a Afluencia Inteligente</h1>
+            <!-- Agrega más contenido del header si es necesario -->
+        </div>
+        <!-- Resto de tu contenido -->
+    </header>
     <p>La fecha y hora en Chile es: <span id="chileTime"></span></p>
     <p>La cantidad de personas detectadas en el recinto en este momento es de:</p>
     <p><span id="numeroPersonas"></span></p>
@@ -17,11 +24,14 @@
     <p>Correspondiente a una ocuapcion del:</p>
     <p><span id="porcentajePersonas"></span> % </p>
     <p>Historial de hoy <span id="nombreDia"></span>:</p>
-    <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+    <div style="display: flex; justify-content: center; align-items: center; height: 40vh;">
         <canvas id="myChart" style="max-width: 600px;"></canvas>
     </div>
-    
-    <script src="grafico.js"></script>    
+    <p> </p>
+    <footer>
+        <p>Proyecto ELO328</p>
+    </footer>
+   
     
     
 </body>

@@ -1,28 +1,59 @@
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Cambia a la fuente Open Sans */
     text-align: center;
-    background-color: #eeeeee; /* Agregamos el fondo gris claro */
+    background-color: #ededee;
+    font-size: 18px;
+    color: #333333;
 }
 
 h1 {
-    color: #333;
-}
-
-button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    color: #333333;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
+
+
 #logo {
     display: block;
     margin: 0 auto;
     text-align: center;
-    width: 20%; 
+    width: 18%;
+    margin-left: 20px;
+}
+#header-text {
+    flex-grow: 1; /* Permite que el texto del encabezado ocupe todo el espacio disponible */
+    text-align: center; /* Alinea el texto a la izquierda */
+    color: #333333;
+    margin-bottom: 0px;
+}
+
+
+footer {
+    background-color: #333333;
+    color: #efefef;
+    padding: 10px;
+    text-align: right; /* Alinea el texto a la derecha */
+    margin: 0; /* Elimina márgenes */
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+/* Consulta de medios para pantallas pequeñas (como teléfonos) */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 10px; /* Ajusta el espacio alrededor del encabezado para pantallas pequeñas */
+    }
+
+    #logo {
+        width: 80%; /* Ajusta el ancho del logo para pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 1.2em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    }
 }

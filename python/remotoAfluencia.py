@@ -13,7 +13,7 @@ santiago_timezone = pytz.timezone('Chile/Continental')
 now = datetime.now(santiago_timezone).strftime("%Y-%m-%d %H:%M:%S")
 dia = datetime.now(santiago_timezone).strftime("%A")
 
-zona = 0
+zona = 1
 cantidad = 56
 
 # Datos a enviar en la solicitud POST
