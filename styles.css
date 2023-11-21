@@ -23,7 +23,7 @@ header {
     align-items: center;
     padding: 0vw; /* Ajusta el relleno en relación con el ancho de la ventana */
     background-color: #ededee;
-     width: 100%;
+    width: 100%;
 }
 
 #logo-container {
@@ -85,6 +85,7 @@ body, html {
 /* Consulta de medios para pantallas pequeñas (como teléfonos) */
 @media only screen and (max-width: 600px) {
     header {
+        display: grid;
         padding: 1vw; /* Ajusta el espacio alrededor del encabezado para pantallas pequeñas */
     }
 
@@ -103,7 +104,7 @@ body, html {
     
     #cantidad-porcentaje-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1fr, 2);
         gap: 1vw; /* Ajusta el espacio entre las cajas en relación con el ancho de la ventana */
         margin-top: 0.5vw; /* Ajusta el margen superior en relación con el ancho de la ventana */
     }
@@ -114,4 +115,8 @@ body, html {
         margin-left: 5vw; /* Ajusta el margen izquierdo en relación con el ancho de la ventana */
     }
 
+    footer {
+        
+        font-size: 2vw;
+    }
 }
