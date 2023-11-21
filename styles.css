@@ -30,6 +30,7 @@ header {
     width: 18%;
     display: flex;
     align-items: center;
+    margin-left: 1vw;
 }
 
 #logo {
@@ -43,8 +44,8 @@ header {
 }
 
 #fecha-hora {
-    text-align: right;
-    margin-right: 1vw;
+    text-align: center;
+    margin-right: 3vw;
 }
 
 
@@ -85,7 +86,7 @@ body, html {
 /* Consulta de medios para pantallas pequeñas (como teléfonos) */
 @media only screen and (max-width: 600px) {
     body {
-        font-size: 2vw; /* Tamaño de fuente en relación con el ancho de la ventana */
+        font-size: 3vw; /* Tamaño de fuente en relación con el ancho de la ventana */
         
     }
     header {
