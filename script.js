@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function chartUpdate(xValues, yValues) {
-        const barColors = ["#f04d28"]; // Puedes ajustar el color según tu preferencia
+        const barColors = ["#d86a50"]; // Puedes ajustar el color según tu preferencia
 
         // Comprueba si el gráfico ya existe
         

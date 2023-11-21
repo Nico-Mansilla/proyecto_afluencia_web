@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,19 +11,30 @@
 <script src="script.js"></script>
 <body>
     <header>
-        <img id="logo" src="images/afluencia2.png" alt="Afluencia Inteligente Logo">
+        <div id="logo-container">
+            <img id="logo" src="images/afluencia2.png" alt="Afluencia Inteligente Logo">
+        </div>
         <div id="header-text">
-            <h1>Bienvenido a Afluencia Inteligente</h1>
+            <h1>Bienvenido a afluencia inteligente</h1>
             <!-- Agrega más contenido del header si es necesario -->
         </div>
-        <!-- Resto de tu contenido -->
+        <div id="fecha-hora">
+            <p>Fecha: <span id="chileTime"></span></p>
+        </div>
     </header>
-    <p>La fecha y hora en Chile es: <span id="chileTime"></span></p>
-    <p>La cantidad de personas detectadas en el recinto en este momento es de:</p>
-    <p><span id="numeroPersonas"></span></p>
 
-    <p>Correspondiente a una ocupacion del:</p>
-    <p><span id="porcentajePersonas"></span> % </p>
+    <div id="cantidad-porcentaje-container">
+        <div class="cantidad-personas">
+            <p>Número de personas</p>
+            <span id="numeroPersonas"></span>
+        </div>
+        <div class="porcentaje-personas">
+            <p>Porcentaje de ocupación</p>
+            <span id="porcentajePersonas"></span> %
+        </div>
+    </div>
+
+
     <p>Historial de hoy <span id="nombreDia"></span>:</p>
     <div style="display: flex; justify-content: center; align-items: center; height: 40vh;">
         <canvas id="myChart" style="max-width: 600px;"></canvas>
