@@ -14,7 +14,7 @@ now = datetime.now(santiago_timezone).strftime("%Y-%m-%d %H:%M:%S")
 dia = datetime.now(santiago_timezone).strftime("%A")
 
 zona = 1
-cantidad = 15
+cantidad = 10
 
 # Datos a enviar en la solicitud POST
 data = {
