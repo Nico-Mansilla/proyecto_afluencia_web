@@ -14,14 +14,16 @@ now = datetime.now(santiago_timezone).strftime("%Y-%m-%d %H:%M:%S")
 dia = datetime.now(santiago_timezone).strftime("%A")
 
 zona = 1
-cantidad = 10
+cantidad = 5
+flag = 0
 
 # Datos a enviar en la solicitud POST
 data = {
     "zona": str(zona),
     "cantidad": cantidad,
     "tiempo": now,
-    "dia": dia
+    "dia": dia,
+    "flag": flag
 }
 
 # Convierte los datos a JSON

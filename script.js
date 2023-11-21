@@ -15,37 +15,71 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateNumeroPersonas() {
         callAPI()
             .then(result => {
-
                 const fechaActual = new Date();
-
+    
                 // Configuración para obtener la fecha en formato "YYYY-MM-DD" en la zona horaria de Santiago de Chile
                 const opcionesFormato = { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'America/Santiago' };
-
+    
                 const fechaC = fechaActual.toLocaleDateString('es-CL', opcionesFormato);
                 // Invertir los componentes de la cadena de fecha
                 const fechaChile = fechaC.split('-').reverse().join('-');
-                
-
+    
                 const datosHoy = result.filter(dato => dato.fecha.S.startsWith(fechaChile));
 
+                
+                // Objeto para realizar un seguimiento de la suma y la cantidad de ocurrencias de cada valor de horInv
+                const promedioPorHora = {};
+    
+                datosHoy.forEach(dato => {
+                    // Verificar si la zona es igual a 1
+                    if (dato.zona && dato.flag.N === "0") {
+                        const hora = dato.fecha.S.slice(-8, -3);
+                        const cantidad = parseInt(dato.cantidad.N);
+                
+                        // Si es la primera vez que encontramos esta hora, inicializamos el objeto
+                        if (!promedioPorHora[hora]) {
+                            promedioPorHora[hora] = { sum: 0, count: 0 };
+                        }
+                
+                        // Actualizamos la suma y la cantidad
+                        promedioPorHora[hora].sum += cantidad;
+                        promedioPorHora[hora].count++;
+                    }
+                });
+    
+                // Calculamos el promedio y actualizamos los arreglos horInv y verInv
+                const horasUnicas = Object.keys(promedioPorHora);
+                const horInv = horasUnicas.reverse();
+                const verInv = horasUnicas.map(hora => promedioPorHora[hora].sum / promedioPorHora[hora].count).reverse();
+    
+                // Resto de tu código para actualizar la interfaz gráfica
+                //busca ultimo dato
                 const datoConMayorId = datosHoy.reduce((max, dato) => (
                     max && max.id && max.id.S > dato.id.S ? max : dato
-                  ), null);
-                const numeroPersonas = datoConMayorId ? parseInt(datoConMayorId.cantidad.N) : null;
-                
+                ), null);
+                let numeroPersonas = datoConMayorId ? parseInt(datoConMayorId.cantidad.N) : null;
+                //numeroPersonas = datoConMayorId ? parseInt(datoConMayorId.cantidad.N) : "Fuera de servicio";
+
                 //console.log("Respuesta: ", result);
-                //actualiza nmumeros
-                numeroPersonasElement.textContent = numeroPersonas; // Establece el contenido dentro del .then
-                porcentajePersonasElement.textContent = Math.round((numeroPersonas/capacidadC)*100);
-                //actualiza grafico
-                const hor = datosHoy.map(dato => dato.fecha.S);
-                const ver = datosHoy.map(dato => parseInt(dato.cantidad.N));
-
-                const horInv = hor.map(date => date.slice(-8, -3)).reverse();
-                const verInv = ver.slice().reverse();
-
-                chartUpdate(horInv,verInv);
-
+                //actualiza números solo si flag =0
+                const ultimoDato = datosHoy.reduce((max, dato) => {
+                    // Obtener los IDs sin el primer caracter
+                    const idMax = max && max.id ? max.id.S.slice(1) : '';
+                    const idDato = dato.id.S.slice(1);
+                
+                    // Comparar los IDs sin el primer caracter
+                    return idMax > idDato ? max : dato;
+                }, null);
+                if (ultimoDato.flag.N === "0") {
+                    numeroPersonasElement.textContent = numeroPersonas; // Establece el contenido dentro del .then
+                    porcentajePersonasElement.textContent = Math.round((numeroPersonas / capacidadC) * 100);
+                } else {
+                    numeroPersonasElement.textContent = "Fuera de servicio"; // Establece el contenido dentro del .then
+                    porcentajePersonasElement.textContent = "Fuera de servicio";
+                }
+                
+                //actualiza gráfico
+                chartUpdate(horInv, verInv);
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -84,7 +118,9 @@ document.addEventListener("DOMContentLoaded", function () {
         //nombreDiaElement.textContent = nombreDia;
     }
     
-    function chartUpdate(xValues, yValues) {
+    function chartUpdate(xVal, yVal) {
+        xValues = xVal;
+        yValues = yVal.reverse();
         const barColors = ["#d86a50"]; // Puedes ajustar el color según tu preferencia
         const options = { weekday: 'long' };
         nombreDia = new Date().toLocaleString("es-CL", options);
@@ -125,14 +161,15 @@ document.addEventListener("DOMContentLoaded", function () {
                             type: 'linear', // Usa una escala lineal para el eje x
                             position: 'bottom',
                             ticks: {
-                                stepSize: 1, // Puedes ajustar el paso según tu necesidad
+                                stepSize: 2, // Puedes ajustar el paso según tu necesidad
                                 callback: function (value) {
-                                    return value % 1 === 0 ? xValues[value] : '';
+                                    return value % 2 === 0 ? xValues[value] : '';
                                 }
                             }
                         },
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            min: 0  // Establece el valor mínimo del eje y en 0
                         }
                     }
                 }
