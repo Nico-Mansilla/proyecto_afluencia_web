@@ -133,5 +133,5 @@ document.addEventListener("DOMContentLoaded", function () {
         updateNumeroPersonas();
     }
     // Actualizar cada segundo
-    setInterval(update, 2000);
+    setInterval(update, 5000);
 });
