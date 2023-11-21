@@ -63,9 +63,12 @@ footer {
     background-color: #333333;
     color: #efefef;
     padding: 10px;
-    text-align: right; /* Alinea el texto a la derecha */
-    margin: 0; /* Elimina márgenes */
+    text-align: center; /* Alinea el texto al centro */
+    position: left;
+    bottom: 0;
+    width: 100%;
 }
+
 body, html {
     margin: 0;
     padding: 0;
