@@ -84,6 +84,10 @@ body, html {
 
 /* Consulta de medios para pantallas pequeñas (como teléfonos) */
 @media only screen and (max-width: 600px) {
+    body {
+        font-size: 2vw; /* Tamaño de fuente en relación con el ancho de la ventana */
+        
+    }
     header {
         display: grid;
         padding: 1vw; /* Ajusta el espacio alrededor del encabezado para pantallas pequeñas */
@@ -98,9 +102,11 @@ body, html {
     }
 
     h1 {
-        font-size: 1.2em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+        font-size: 2em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
     }
-
+    #fecha-hora {
+        text-align: center;
+    }
     
     #cantidad-porcentaje-container {
         display: grid;
