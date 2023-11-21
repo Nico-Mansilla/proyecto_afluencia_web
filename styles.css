@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     background-color: #ededee;
-    font-size: 1.5vw; /* Tamaño de fuente en relación con el ancho de la ventana */
+    font-size: 1.4vw; /* Tamaño de fuente en relación con el ancho de la ventana */
     color: #333333;
     min-height: 100vh;
     margin: 0;
@@ -21,8 +21,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vw; /* Ajusta el relleno en relación con el ancho de la ventana */
+    padding: 0vw; /* Ajusta el relleno en relación con el ancho de la ventana */
     background-color: #ededee;
+     width: 100%;
 }
 
 #logo-container {
@@ -43,7 +44,12 @@ header {
 
 #fecha-hora {
     text-align: right;
+    margin-right: 1vw;
 }
+
+
+
+
 
 #cantidad-porcentaje-container {
     display: grid;
@@ -56,8 +62,8 @@ header {
 .porcentaje-personas {
     border: 1px solid #333333;
     padding: 2vw; /* Ajusta el relleno en relación con el ancho de la ventana */
-    margin-right: 10vw; /* Ajusta el margen derecho en relación con el ancho de la ventana */
-    margin-left: 10vw; /* Ajusta el margen izquierdo en relación con el ancho de la ventana */
+    margin-right: 8vw; /* Ajusta el margen derecho en relación con el ancho de la ventana */
+    margin-left: 8vw; /* Ajusta el margen izquierdo en relación con el ancho de la ventana */
 }
 
 footer {
@@ -65,9 +71,10 @@ footer {
     color: #efefef;
     padding: 1vw; /* Ajusta el relleno en relación con el ancho de la ventana */
     text-align: center;
-    position: left;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 0.9vw;
 }
 
 body, html {
@@ -82,7 +89,7 @@ body, html {
     }
 
     #logo-container {
-        width: 80%; /* Ajusta el ancho del logo para pantallas pequeñas */
+        width: 100%; /* Ajusta el ancho del logo para pantallas pequeñas */
     }
 
     #logo {
@@ -93,11 +100,13 @@ body, html {
         font-size: 1.2em; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
     }
 
+    
     #cantidad-porcentaje-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1vw; /* Ajusta el espacio entre las cajas en relación con el ancho de la ventana */
         margin-top: 0.5vw; /* Ajusta el margen superior en relación con el ancho de la ventana */
     }
-
     .cantidad-personas,
     .porcentaje-personas {
         padding: 1vw; /* Ajusta el relleno en relación con el ancho de la ventana */
