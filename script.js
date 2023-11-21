@@ -15,20 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateNumeroPersonas() {
         callAPI()
             .then(result => {
-                
-                
-                const datoConMayorId = result.reduce((max, dato) => (
+
+                const chileDia = new Date().toLocaleString("es-CL", { timeZone: "America/Santiago" });
+                console.log("dia: ", chileDia);
+                const datosHoy = result.filter(dato => dato.fecha.S.startsWith("2023-11-20"));
+
+                const datoConMayorId = datosHoy.reduce((max, dato) => (
                     max && max.id && max.id.S > dato.id.S ? max : dato
                   ), null);
                 const numeroPersonas = datoConMayorId ? parseInt(datoConMayorId.cantidad.N) : null;
                 
-                console.log("Respuesta: ", result);
+                //console.log("Respuesta: ", result);
                 //actualiza nmumeros
                 numeroPersonasElement.textContent = numeroPersonas; // Establece el contenido dentro del .then
                 porcentajePersonasElement.textContent = Math.round((numeroPersonas/capacidadC)*100);
                 //actualiza grafico
-                const hor = result.map(dato => dato.fecha.S);
-                const ver = result.map(dato => parseInt(dato.cantidad.N));
+                const hor = datosHoy.map(dato => dato.fecha.S);
+                const ver = datosHoy.map(dato => parseInt(dato.cantidad.N));
 
                 const horInv = hor.map(date => date.slice(-8, -3)).reverse();
                 const verInv = ver.slice().reverse();
