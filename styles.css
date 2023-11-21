@@ -95,7 +95,7 @@ body, html {
     }
 
     #logo-container {
-        width: 100%; /* Ajusta el ancho del logo para pantallas pequeñas */
+        width: 90%; /* Ajusta el ancho del logo para pantallas pequeñas */
     }
 
     #logo {
