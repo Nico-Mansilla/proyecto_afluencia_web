@@ -16,9 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
         callAPI()
             .then(result => {
 
-                const chileDia = new Date().toLocaleString("es-CL", { timeZone: "America/Santiago" });
-                console.log("dia: ", chileDia);
-                const datosHoy = result.filter(dato => dato.fecha.S.startsWith("2023-11-20"));
+                const fechaActual = new Date();
+
+                // Configuración para obtener la fecha en formato "YYYY-MM-DD" en la zona horaria de Santiago de Chile
+                const opcionesFormato = { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'America/Santiago' };
+
+                const fechaC = fechaActual.toLocaleDateString('es-CL', opcionesFormato);
+                // Invertir los componentes de la cadena de fecha
+                const fechaChile = fechaC.split('-').reverse().join('-');
+                
+
+                const datosHoy = result.filter(dato => dato.fecha.S.startsWith(fechaChile));
 
                 const datoConMayorId = datosHoy.reduce((max, dato) => (
                     max && max.id && max.id.S > dato.id.S ? max : dato
@@ -136,5 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateNumeroPersonas();
     }
     // Actualizar cada segundo
+    update();
     setInterval(update, 5000);
 });
