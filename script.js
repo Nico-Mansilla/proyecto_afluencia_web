@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chileTimeElement = document.getElementById("chileTime");
     const numeroPersonasElement = document.getElementById("numeroPersonas");
     const porcentajePersonasElement = document.getElementById("porcentajePersonas");
-    const nombreDiaElement = document.getElementById("nombreDia");
+    //const nombreDiaElement = document.getElementById("nombreDia");
     
     const capacidadC = 200.00;
 
@@ -81,12 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
         chileTimeElement.textContent = chileTime;
         const options = { weekday: 'long' };
         nombreDia = new Date().toLocaleString("es-CL", options);
-        nombreDiaElement.textContent = nombreDia;
+        //nombreDiaElement.textContent = nombreDia;
     }
     
     function chartUpdate(xValues, yValues) {
         const barColors = ["#d86a50"]; // Puedes ajustar el color según tu preferencia
-
+        const options = { weekday: 'long' };
+        nombreDia = new Date().toLocaleString("es-CL", options);
         // Comprueba si el gráfico ya existe
         
 
@@ -116,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         display: false
                     },
                     title: {
-                        display: false,
-                        text: ""
+                        display: true,
+                        text: "Historial de hoy "+nombreDia
                     },
                     scales: {
                         x: {
