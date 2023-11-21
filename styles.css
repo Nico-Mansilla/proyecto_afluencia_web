@@ -1,10 +1,14 @@
 /* Estilos generales */
 body {
-    font-family: 'Poppins', sans-serif; /* Cambia a la fuente Louis George Café */
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     background-color: #ededee;
     font-size: 18px;
     color: #333333;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
