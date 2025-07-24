@@ -1,8 +1,10 @@
 ![Banner](images/afluencia2.png)
 
-# Proyecto Afluencia Web
+# Proyecto Web Afluencia Inteligente
 
-Este repositorio contiene el código fuente de una página web orientada a la gestión y visualización de información sobre afluencia de personas. El proyecto se basa en recibir datos publicados por un computador remoto que cuenta personas en un establecimiento utilizando OpenCV, desplegando los datos en forma amigable para el publico general en una página web.
+Este repositorio contiene el código fuente de una página web orientada a la gestión y visualización de información sobre afluencia de personas para la adignatura de procesamiento de imágenes. 
+
+El proyecto se basa en recibir datos publicados por un computador remoto que cuenta personas en un establecimiento utilizando OpenCV, desplegando los datos en forma amigable para el publico general en una página web.
 
 ## Tecnologías utilizadas
 
